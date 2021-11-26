@@ -1,10 +1,25 @@
 import React from "react"
 import ReactDOM from "react-dom"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { Register, Login, Home, Detail, Recommendation, NotFound } from "pages";
+import './index.css'
 
 const App = () => {
     return (
-      <div>Hello React !</div>
+      <div>
+        <Routes>
+          <Route path='/' element={<Register/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/home' element={<Home/>}/>
+          <Route path='/detail' element={<Detail/>}/>
+          <Route path='/recommend' element={<Recommendation/>}/>
+          <Route path='*' element={<NotFound/>}/>
+        </Routes>
+      </div>
     );
   };
   
-  ReactDOM.render(<App />, document.getElementById("app"));
+  ReactDOM.render(<BrowserRouter>
+                    <App/> 
+                  </BrowserRouter>,
+                  document.getElementById("app"));

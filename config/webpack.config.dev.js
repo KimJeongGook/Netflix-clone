@@ -4,13 +4,13 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const webpack = require("webpack");
 
-const REACT_PORT = 3000;
+const REACT_PORT = 3000; //port 번호
 console.log(__dirname);
 
 module.exports = {
   // 자바스크립트 빌드
   entry: {
-    app: ["babel-polyfill", "./src/index.js"]
+    app: ["babel-polyfill", "./src/index.js"] //번들링 시작 시점
   },
   output: {
     path: path.resolve(__dirname, "../dist"),
@@ -79,7 +79,7 @@ module.exports = {
       },
       {
         // write files under 10k to inline or copy files over 10k
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        test: /\.(woff|woff2|eot|ttf|otf)$/, //font 처리
         use: [
           {
             loader: "url-loader",
